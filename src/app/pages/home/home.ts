@@ -1,22 +1,35 @@
-import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, QueryList, ViewChild, ViewChildren,inject } from '@angular/core';
 import { Navbar } from '../../components/navbar/navbar';
 import { Footer } from '../../components/footer/footer';
 import { CardProduto } from "../../components/card-produto/card-produto";
 import { Produto } from '../../models/produto';
 import { Categoria } from '../../models/categoria';
 import { CommonModule } from '@angular/common';
+import { Detalhes } from "../../components/detalhes/detalhes";
 
 @Component({
   selector: 'app-home',
-  imports: [Navbar, Footer, CardProduto,CommonModule],
+  imports: [Navbar, Footer, CardProduto, CommonModule, Detalhes],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
 export class Home implements AfterViewInit {
   @ViewChildren('scrollContainer') scrollContainers!: QueryList<ElementRef>;
 
-  //att: Falta fazer o scrool funcionar pros outros elementos da lista
 
+  //Lógica pra abrir o modal com os detalhes dos produtos
+  mostrarModal = false;
+  produtoSelecionado: any = null;
+
+  abrirModal(item: Produto) {
+    this.produtoSelecionado = item;
+    this.mostrarModal = true;
+  }
+
+  fecharModal() {
+    this.mostrarModal = false;
+    this.produtoSelecionado = null;
+  }
   produtos: Produto[] = [];
   listaCategorias: Categoria[] = [];
   constructor(){

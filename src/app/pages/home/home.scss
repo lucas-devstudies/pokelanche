@@ -35,3 +35,72 @@ html, body {
   left: 0;
   z-index: 2;
 }
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 10;
+}
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 11;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  max-height: 80vh;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 500px;
+}
+
+.fechar {
+  display: block;
+  margin: 10px auto 0;
+  padding: 8px 16px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media(max-width: 768px){
+  .modal-container {
+    top: auto;
+    bottom: 0;
+    left: auto;
+    right: auto;
+    transform: none;
+    animation: subir 0.4s ease-in-out forwards;
+
+  }
+}
+@media(max-width: 400px){
+  .modal-container {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: none;
+    border-radius: 1rem 1rem 0 0;
+    width: 100%;
+    padding: 0.5rem 0rem;
+    margin: 0;
+    max-width: none;
+    animation: subir 0.4s ease-in-out forwards;
+
+  }
+}
+@keyframes subir{
+  from{
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to{
+    transform: translateY(0);
+  }
+}

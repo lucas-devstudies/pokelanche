@@ -1,0 +1,14 @@
+<div class="container-fluid d-flex flex-column m-0 p-0 align-items-center justify-content-between" style="height: 100%;">
+    <div class="container-fluid">
+        <img src="{{produto.url}}" class="w-100" style="max-height: 40vh; background-repeat: no-repeat;background-position: center;object-fit: cover; border-radius: 0.5rem 0.5rem 0 0;">
+        <h3 class="w-100 fw-bold fs-5 py-2 text-center">{{produto.titulo}}</h3>
+        <p class="text-justify w-100">{{produto.descricao}}</p>
+    </div>
+    <div class="container-fluid d-flex justify-content-between align-items-center py-2" style="border-top: 0.01rem solid #a19e9e;">
+        <p class="fw-bold fs-5 p-0 m-0 text" style="color: var(--color-primary);">R$ {{produto.valor}}</p>
+        <app-botao-confirmar
+            texto="Voltar"
+            (click)="fecharModal()"
+            ></app-botao-confirmar>
+    </div>
+</div>
