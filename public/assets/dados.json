@@ -1,0 +1,70 @@
+{
+  "listaCategorias": [
+    {
+      "nome": "Sanduiches",
+      "url": "../assets/cat-3.png",
+      "produtos": [
+        {
+          "url": "../assets/x-pikachu.png",
+          "titulo": "X-Pikachu (Especial)",
+          "descricao": "Um sanduíche eletrizante! Três carnes suculentas, queijo derretido, alface, tomate e molho especial. Energia pura em cada mordida!",
+          "valor": 28.00
+        },
+        {
+          "url": "../assets/x-snorlax.png",
+          "titulo": "X-Snorlax (Clássico)",
+          "descricao": "O lanche do gigante: Duas carnes, bacon crocante, cheddar cremoso e cebola caramelizada. Satisfação garantida para a sua fome!",
+          "valor": 24.50
+        },
+        {
+          "url": "../assets/x-charmander.png",
+          "titulo": "X-Charmander (Apimentado)",
+          "descricao": "Aqueça seu paladar! Hambúrguer grelhado com queijo pimenta jalapeño, molho de pimenta defumada e alface americana.",
+          "valor": 26.00
+        }
+      ]
+    },
+    {
+      "nome": "Tapiocas",
+      "url": "../assets/cat-2.png",
+      "produtos": [
+        {
+          "url": "../assets/tapioca-queijo.png",
+          "titulo": "Tapioca de Frango com Queijo",
+          "descricao": "Massa de tapioca fresquinha recheada com frango desfiado temperado e queijo coalho.",
+          "valor": 16.00
+        },
+        {
+          "url": "../assets/tapioca-doce.png",
+          "titulo": "Tapioca Doce de Brigadeiro",
+          "descricao": "A clássica tapioca com recheio cremoso de brigadeiro de colher e granulado.",
+          "valor": 12.50
+        }
+      ]
+    },
+    {
+      "nome": "Doces",
+      "url": "../assets/cat-6.png",
+      "produtos": [
+        {
+          "url": "../assets/brownie.png",
+          "titulo": "Brownie de Chocolate com Nozes",
+          "descricao": "Delicioso e úmido brownie de chocolate belga, coberto com pedaços crocantes de nozes.",
+          "valor": 8.00
+        },
+        {
+          "url": "../assets/pudim.png",
+          "titulo": "Pudim de Leite Condensado",
+          "descricao": "Pudim tradicional, liso e macio, com calda de caramelo caseira.",
+          "valor": 9.50
+        },
+        {
+          "url": "../assets/mousse.png",
+          "titulo": "Mousse de Maracujá",
+          "descricao": "Leve e azedinho, feito com a fruta natural e finalizado com sementes.",
+          "valor": 7.00
+        }
+      ]
+    }
+  ]
+}

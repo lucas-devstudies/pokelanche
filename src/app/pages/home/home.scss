@@ -26,3 +26,12 @@ html, body {
 .produtos::-webkit-scrollbar{
     display: none;
 }
+.cat-img_direita{
+  position: sticky;
+  left: 0;
+}
+.cat-img_esquerda{
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}

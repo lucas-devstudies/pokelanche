@@ -1,3 +1,12 @@
 .footer_comp{
     background-color: var(--color-primary);
 }
+.titulo{
+    position: absolute;
+    left: 2rem;
+    z-index: 2;
+}
+.texto{
+    text-align: center;
+    width: 100%;
+}
