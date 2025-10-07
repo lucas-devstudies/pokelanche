@@ -1,0 +1,28 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.scrollspy-example {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.bg-body-tertiary{
+    background-color: #fff !important;
+}
+.produtos{
+    overflow-x: auto;
+    white-space: nowrap;
+    cursor: grab;
+}
+.produtos:active{
+    cursor: grabbing;
+}
+.produtos::-webkit-scrollbar{
+    display: none;
+}

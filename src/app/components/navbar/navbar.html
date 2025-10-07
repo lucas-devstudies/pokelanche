@@ -1,0 +1,18 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary m-0 p-0" id="navbar">
+  <div class="container-fluid py-1">
+    <img src="../assets/Logo.png" class="me-2" style="width: 2rem;">
+    <a class="navbar-brand text-white fw-bold" href="#">PokeLanche</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="nav nav-pills ms-auto">
+        @for(categoria of lista; track $index){
+          <li class="nav-item">
+              <a class="nav-link text-white" href="#{{categoria.nome}}" >{{categoria.nome}}</a>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</nav>

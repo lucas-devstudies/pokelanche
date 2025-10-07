@@ -1,0 +1,21 @@
+<div class="container-fluid d-flex justify-content-between flex-column p-0 m-0">
+    <app-navbar-adm class="w-100"></app-navbar-adm>
+    <div class="container conteudo d-flex justify-content-between flex-column m-0">
+        <div class="container d-flex mt-5">
+            <app-botao-confirmar texto="Voltar" variant="voltar" ></app-botao-confirmar>
+        </div>        
+        <div class="container d-flex flex-column align-items-center justify-content-center p-0">
+            <app-img-selecionavel></app-img-selecionavel>
+            <div class="conteudo container">
+                <label class="fw-bold fs-5">Nome</label>
+                <input class="input-texto w-100 mt-1" placeholder="Bebidas">
+            </div>
+        </div>
+        <div class="container mb-5">
+            <app-botao-confirmar
+                texto="Confirmar"
+                class="ativado w-100"
+            ></app-botao-confirmar>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+h3{
+    color: #1e1e1e;
+}
+p{
+    color: var(--color-primary);
+}
+.card{
+    cursor: pointer;
+    user-select: none;
+    animation: fromBottom 1s alternate;
+    width: 12rem;
+    max-height: 15rem;
+    box-shadow: 0 0 4px 0 var(--color-border);
+}
+.card img{
+    user-select: none;
+    -webkit-user-drag: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+@media(max-width:720px) {
+    .card{
+        width: 8rem;
+    }
+    .card h3{
+        font-size: 0.6rem;
+    }
+    .card p{
+        font-size: 0.5rem;
+    }
+    .fs-5{
+        font-size: 1rem !important;
+    }
+}
+
+// Hover
+.card:hover{
+    background-color: #f2f2f2;
+    box-shadow: 0 0 20px 0 var(--color-border);
+}
+.foto:hover{
+    box-shadow: 0 0 4px 0 var(--color-border);
+}
+
+// animação
+@keyframes fromBottom {
+    from{
+        opacity: 0;
+        transform: translateY(300px);
+    }to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
