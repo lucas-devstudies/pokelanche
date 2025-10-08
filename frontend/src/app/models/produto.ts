@@ -1,6 +1,6 @@
 export class Produto{
-    url!:String;
     titulo!:String;
+    url!:String;
     descricao!:String;
     valor!:number;
 }

@@ -12,7 +12,7 @@
     </div>
     @for(categoria of listaCategorias; track $index) {
     <div data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scrool="true"  class="mt-2 scrollspy-example bg-body-tertiary p-0 rounded-2 w-100" tabindex="0">
-        @if(categoria.Produtos.length>0){
+        @if(categoria.produtos.length>0){
             <section id={{categoria.nome}} class="p-0">
             @if ($index%2===0){
                 <div class="align-items-center d-flex w-100 d-flex justify-content-center">
@@ -27,11 +27,11 @@
                 </div>
             }
             <div #scrollContainer class="container produtos d-flex gap-2 overflow-auto py-3" style="max-width: 1200px;">
-            @for(produto of categoria.Produtos; track $index){
+            @for(produto of categoria.produtos; track $index){
                 <app-card-produto
                     url="{{produto.url}}"
                     titulo="{{produto.titulo}}"
-                    [valor]="produto.valor"
+                    [valor]=produto.valor
                     (click)="abrirModal(produto)">
                 </app-card-produto>
             }
