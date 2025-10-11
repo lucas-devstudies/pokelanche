@@ -1,1 +1,33 @@
-<p>login works!</p>
+
+<div class="container-fluid d-flex justify-content-between flex-column p-0 m-0 align-items-center">
+
+    <div class="componentes">
+        <div class="div-logo">
+            <img src="assets/Logo.png" alt="PokéLanche Logo" class="logo" id="logo">
+        </div>
+
+        <div class="letreiro-login">
+            <label class ="letreiro" for="logo">PokéLanche</label>
+        </div>
+
+        <form class = "form_login" action="POST">
+
+            <label for="login_usuario" class="label">Email: </label>
+            <p></p>
+            <input type="email" name="login_usuario" id="login_usuario" class="campo" placeholder="DoisBaloesEMeio@gmail.com" required>
+            <p></p>
+            <label for="senha_usuario" class="label">Senha:</label>
+            <p></p>
+            <input type="password" name="senha_usuario" id="senha_usuario" class="campo" placeholder="**********">
+            
+            <div class="div-botao">
+                <button type="submit" class="botao-entrar">
+                Entrar
+            </button>
+
+            </div>
+            
+            
+        </form>
+    </div>
+</div>
