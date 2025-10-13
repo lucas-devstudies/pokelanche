@@ -5,7 +5,7 @@
         <p class="text-justify w-100">{{produto.descricao}}</p>
     </div>
     <div class="container-fluid d-flex justify-content-between align-items-center py-2" style="border-top: 0.01rem solid #a19e9e;">
-        <p class="fw-bold fs-5 p-0 m-0 text" style="color: var(--color-primary);">R$ {{produto.valor}}</p>
+        <p class="fw-bold fs-5 p-0 m-0 text" style="color: var(--color-primary);">R$ {{produto.valor.toLocaleString('pt-BR')}}</p>
         <app-botao-confirmar
             texto="Voltar"
             (click)="fecharModal()"

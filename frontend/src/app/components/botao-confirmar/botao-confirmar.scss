@@ -8,11 +8,20 @@
 .botao:hover{
     background-color: var(--color-accent);
 }
+
+.botao.quadrado{
+    border-radius: 0.5rem;
+}
+.botao.quadrado:hover{
+    background-color: var(--color-accent);
+}
+
 .botao.voltar{
     background-color: white;
     color: var(--color-primary);
     border: 0.01rem solid var(--color-primary);
     padding: 0.4rem 1rem;
+    cursor: pointer;
 }
 .botao.voltar:hover{
     background-color:#fd446f8e;

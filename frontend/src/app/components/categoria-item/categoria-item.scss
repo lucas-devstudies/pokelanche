@@ -1,0 +1,17 @@
+p{
+    height: auto;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+.item{
+    background-color: white;
+}
+.item:hover{
+    color: #1e1e1e;
+    background-color: #c9c6c617;
+}
+.item.ativo{
+    background-color: #d2cfcf32;
+    color: #1515157d;
+}

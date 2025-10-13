@@ -41,6 +41,7 @@ export class Home implements AfterViewInit {
   
   ngOnInit(){
     this.findAll();
+    this.ngAfterViewInit();
   }
   findAll() {
     this.categoriaService.getAll().subscribe({
@@ -48,7 +49,6 @@ export class Home implements AfterViewInit {
         this.listaCategorias = Array.isArray(dados) ? dados : [];
       },
       error: err => {
-        alert(JSON.stringify(err));
       }
     });
   }

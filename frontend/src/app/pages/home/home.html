@@ -1,4 +1,4 @@
-<div class="container-fluid m-0 p-0 d-flex flex-column align-items-center" style="min-height: 100%;height:100;">
+<div class="container-fluid mt-5 p-0 d-flex flex-column align-items-center" style="min-height: 100%;height:100;">
     <app-navbar
         class="w-100"
         [lista]="listaCategorias"
@@ -11,17 +11,17 @@
     </app-detalhes>
     </div>
     @for(categoria of listaCategorias; track $index) {
-    <div data-bs-spy="scroll" data-bs-target="#navbar" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scrool="true"  class="mt-2 scrollspy-example bg-body-tertiary p-0 rounded-2 w-100" tabindex="0">
+    <div data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scrool="true"  class="mt-2 scrollspy-example bg-body-tertiary p-0 rounded-2 w-100" tabindex="0">
         @if(categoria.produtos.length>0){
-            <section id={{categoria.nome}} class="p-0">
+            <section class="p-0">
             @if ($index%2===0){
-                <div class="align-items-center d-flex w-100 d-flex justify-content-center">
+                <div id="{{categoria.nome}}" class="align-items-center d-flex w-100 d-flex justify-content-center">
                     <img class="cat-img_direita" src="{{categoria.url}}" alt="{{categoria.nome}}" style="width:5rem;">
                     <p class="d-flex justify-content-center text-center fs-5 w-100 fw-bold" style="margin-left: -5rem;">{{categoria.nome}}</p>
                 </div>
             }
             @else{
-                <div class="d-flex w-100 align-items-center">
+                <div id="{{categoria.nome}}" class="d-flex w-100 align-items-center">
                     <p class="d-flex justify-content-center text-center fs-5 w-100 fw-bold w-100" style="margin-right: -5rem;">{{categoria.nome}}</p>
                     <img class="cat-img-esquerda" src="{{categoria.url}}" alt="{{categoria.nome}}" style="width:5rem;">
                 </div>

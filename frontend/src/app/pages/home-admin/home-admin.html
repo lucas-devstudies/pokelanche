@@ -1,0 +1,33 @@
+<div class="container-fluid d-flex justify-content-between flex-column p-0 m-0 align-items-center">
+  <app-navbar-adm class="w-100"></app-navbar-adm>
+
+  <div class="container conteudo d-flex justify-content-between flex-column m-0">
+    <div
+      class="mt-4 container gap-4 d-flex flex-column align-items-center justify-content-center p-0 my-5"
+      style="max-width: 500px">
+      <div *ngFor="let categoria of listaCategorias; let i = index" class="input-opcao fs-5">
+        <div class="custom-select-wrapper">
+            <div 
+                class="selected" 
+                [class.open]="dropdownAberto[i]" 
+                (click)="toggleDropdown(i)">
+              <label class="form-label fw-bold w-100 pe-3" style="overflow:hidden;text-overflow: ellipsis;">{{ categoria.nome }}</label>
+            </div>
+            <div class="dropdown-options" *ngIf="dropdownAberto[i]">
+                <app-categoria-item
+                *ngFor="let produto of categoria.produtos"
+                [produto]=produto
+                (click)="selecionarProduto(categoria, produto, i)"
+                >
+                </app-categoria-item>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="botao-wrapper d-flex justify-content-end"> 
+    <button class="botao-fixo" (click)="criar()">
+      <img src="assets/icones/plus.svg" width="24px" height="24px"> 
+    </button>
+  </div>
+</div>

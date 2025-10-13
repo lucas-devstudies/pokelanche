@@ -1,1 +1,17 @@
-<p>categoria-item works!</p>
+<div class="item">
+    <div *ngIf="ativo" class="item w-100 px-2 py-3 d-flex justify-content-between" (click)="mudarEstado()" style="border-top:0.05rem solid var(--color-border); cursor:pointer;">
+        <p class="w-100" style="padding-right: 1rem;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;">{{produto.titulo}}</p>
+        <div class="icones d-flex gap-2">
+            <img src="assets/icones/edit.svg" width="24px" (click)="editar()">
+            <img src="assets/icones/delete.svg" width="18px" (click)="excluir()">
+        </div>
+    </div>
+    <div *ngIf="!ativo" class="item w-100 ativo px-2 py-3 d-flex justify-content-between" (click)="mudarEstado()" style="border-top:0.05rem solid var(--color-border); cursor:pointer;">
+        <p class="w-100" style="padding-right: 1rem;overflow:hidden;text-overflow: ellipsis;white-space: nowrap;">{{produto.titulo}}</p>
+        <div class="icones d-flex gap-2">
+            <img src="assets/icones/edit.svg" width="24px" (click)="editar()">
+            <img src="assets/icones/delete.svg" width="18px" (click)="excluir()">
+        </div>
+    </div>
+</div>
+
