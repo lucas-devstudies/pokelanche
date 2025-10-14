@@ -5,7 +5,6 @@ import { Login } from './pages/login/login';
 import { CadastroProduto } from './pages/cadastro-produto/cadastro-produto';
 import { SelecionarTipo } from './pages/selecionar-tipo/selecionar-tipo';
 import { HomeAdmin } from './pages/home-admin/home-admin';
-import { EditarCategoria } from './pages/editar-categoria/editar-categoria';
 import { EditarProduto } from './pages/editar-produto/editar-produto';
 
 export const routes: Routes = [

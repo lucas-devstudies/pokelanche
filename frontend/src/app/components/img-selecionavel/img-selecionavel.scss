@@ -1,9 +1,16 @@
 .selecionavel{
     width: 10rem;
 }
-
+.preview{
+    width: 20rem;
+    height: 20rem;
+}
 .arquivo::file-selector-button,-webkit-file-upload-button {
   display: none;
+}
+#fileInput{
+    width: 10rem;
+    height: 10rem;
 }
 .arquivo{
     width: 8rem;

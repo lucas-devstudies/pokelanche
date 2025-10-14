@@ -1,9 +1,8 @@
 .container-fluid{
     height: 100vh;
 }
-
 .conteudo{
-    height: 100%;
+    height: wrap;
 }
 .input-texto{
     border: 0.05rem solid var(--color-border);

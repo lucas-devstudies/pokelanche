@@ -9,7 +9,9 @@
       <ul class="nav nav-pills ms-auto">
         @for(categoria of lista; track $index){
           <li class="nav-item">
-              <a class="nav-link text-white" href="#{{categoria.nome}}" >{{categoria.nome}}</a>
+            <a class="nav-link text-white" style="cursor:pointer;" (click)="scrollTo(categoria.nome)">
+              {{ categoria.nome }}
+            </a>
           </li>
         }
       </ul>

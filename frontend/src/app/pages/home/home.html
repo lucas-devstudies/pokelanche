@@ -6,15 +6,16 @@
     <div class="overlay" *ngIf="mostrarModal" (click)="fecharModal()"></div>
     <div class="modal-container" *ngIf="mostrarModal">
         <app-detalhes 
-        [produto]="produtoSelecionado"
-        (fechar) = "fecharModal()">
-    </app-detalhes>
+            [produto]="produtoSelecionado"
+            (fechar) = "fecharModal()">
+        </app-detalhes>
     </div>
-    @for(categoria of listaCategorias; track $index) {
+    @for(categoria of listaCategorias; track $index) 
+    {
     <div data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scrool="true"  class="mt-2 scrollspy-example bg-body-tertiary p-0 rounded-2 w-100" tabindex="0">
         @if(categoria.produtos.length>0){
             <section class="p-0">
-            @if ($index%2===0){
+            @if ($index%2===1){
                 <div id="{{categoria.nome}}" class="align-items-center d-flex w-100 d-flex justify-content-center">
                     <img class="cat-img_direita" src="{{categoria.url}}" alt="{{categoria.nome}}" style="width:5rem;">
                     <p class="d-flex justify-content-center text-center fs-5 w-100 fw-bold" style="margin-left: -5rem;">{{categoria.nome}}</p>

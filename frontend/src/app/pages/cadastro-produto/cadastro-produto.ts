@@ -16,7 +16,6 @@ import { Router } from '@angular/router';
 export class CadastroProduto {
 
   constructor(private router:Router){}
-
   categoriaService = inject(CategoriaService);
   listaCategorias: Categoria[] = [];
 
@@ -36,5 +35,8 @@ export class CadastroProduto {
   }
   voltar(){
     this.router.navigate(['home-admin']);
+  }
+  salvar(){
+    this.router.navigate(['/home-admin']);
   }
 }

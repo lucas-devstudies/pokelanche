@@ -1,7 +1,7 @@
-<div class="container-fluid d-flex justify-content-between flex-column p-0 m-0 align-items-center">
+<div class="container-fluid d-flex flex-column p-0 mx-0 align-items-center">
     <app-navbar-adm class="w-100"></app-navbar-adm>
-    <div class="container conteudo d-flex justify-content-between align-items-center flex-column m-0">
-        <div class="container d-flex mt-5">
+    <div class="container conteudo d-flex justify-content-between align-items-center flex-column m-0 mt-3">
+        <div class="container d-flex mt-5 mb-3">
             <app-botao-confirmar (click)="voltar()" texto="Voltar" variant="voltar" ></app-botao-confirmar>
         </div>        
         <div class="container d-flex flex-column align-items-center justify-content-center p-0" style="max-width: 500px;">
@@ -26,8 +26,11 @@
                 ></textarea>
                 <label class="fw-bold fs-5 mt-2">Valor</label>
                 <div class="input-valor pe-0 mt-2 w-100 d-flex align-items-center justify-content-between">
-                    <span class="fs-5">R$</span>
-                    <input class="input-texto flew-grow-1 fs-5" style="text-align:right;padding-right:1rem;"  type="number" placeholder="0,00" step="any">
+                    <input 
+                        class="input-texto flew-grow-1 fs-5" 
+                        style="text-align:right;padding-right:1rem;"  
+                        type="number" 
+                        placeholder="0,00" step="any">
                 </div>
             </div>
         </div>
@@ -35,6 +38,7 @@
             <app-botao-confirmar
                 texto="Salvar"
                 class="ativado w-100"
+                (click)="salvar()"
             ></app-botao-confirmar>
         </div>
     </div>

@@ -16,4 +16,5 @@ export class CardProduto {
 
   @Input()
   valor:number=0;
+
 }

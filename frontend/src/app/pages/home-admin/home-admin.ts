@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-admin',
-  imports: [NavbarAdm, CommonModule, CategoriaItem, BotaoConfirmar],
+  imports: [NavbarAdm, CommonModule, CategoriaItem],
   templateUrl: './home-admin.html',
   styleUrl: './home-admin.scss'
 })
