@@ -29,6 +29,6 @@ export class CategoriaItem {
 
   }
   editar(){
-    this.router.navigate(['editar-produto',1]);
+    this.router.navigate(['editar-produto',this.produto.id]);
   }
 }
