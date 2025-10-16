@@ -1,9 +1,12 @@
-# pip install "uvicorn[standard]"
 from fastapi import FastAPI
-from core.config import setup_cors
-from api.routes import api_router
 
+from config import setup_cors
+from routes import api_router
+
+
+# Criação do APP
 app = FastAPI()
 
-setup_cors(app)            # CORS vem de fora
-app.include_router(api_router)  # Rotas todas organizadas
+# Configuração das rotas
+setup_cors(app)             
+app.include_router(api_router)  

@@ -1,9 +1,13 @@
 from fastapi import APIRouter
 
-router = APIRouter()
+router = APIRouter(prefix='/categorias', tags=['categorias'])
 
-@router.get("/categorias")
-def listar_categorias():
+@router.post('/')
+def add_categoria():
+    pass
+
+@router.get("/")
+async def list_categorias():
     sanduiches = [
         {"id": 36, "titulo": "X-Pikachu", "url": "../assets/36.png", "descricao": "Uma explosão de sabores", "valor": 27.99},
         {"id": 35, "titulo": "X-Bulbasaur", "url": "../assets/35.png", "descricao": "Uma explosão de sabores", "valor": 23.99},
