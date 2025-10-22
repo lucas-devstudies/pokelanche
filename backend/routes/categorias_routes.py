@@ -1,12 +1,28 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends, status
+from fastapi.responses import JSONResponse
+from schemas import CategoriaSchema
+from models import Categoria
+from dependencies import pegar_sessao
 
 router = APIRouter(prefix='/categorias', tags=['categorias'])
 
-@router.post('/')
-def add_categoria():
-    pass
+@router.post('/add')
+async def add_categoria(dados: CategoriaSchema, session = Depends(pegar_sessao)):
+    nova_categoria = Categoria(nome=dados.nome, url_imagem=dados.url_imagem)
+    session.add(nova_categoria)
+    session.commit()
+    
+    return JSONResponse(
+        status_code = status.HTTP_201_CREATED,
+        content = {
+            "id": nova_categoria.id,
+            "nome": nova_categoria.nome,
+            "url_imagem": nova_categoria.url_imagem,
+            "message": "Categoria cadastrada com sucesso."
+        }
+    )
 
-@router.get("/")
+@router.get("/list")
 async def list_categorias():
     sanduiches = [
         {"id": 36, "titulo": "X-Pikachu", "url": "../assets/36.png", "descricao": "Uma explosão de sabores", "valor": 27.99},
