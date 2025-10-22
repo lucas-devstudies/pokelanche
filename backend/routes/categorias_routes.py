@@ -2,12 +2,13 @@ from fastapi import APIRouter, Depends, status
 from fastapi.responses import JSONResponse
 from schemas import CategoriaSchema
 from models import Categoria
-from dependencies import pegar_sessao
+from dependencies import pegar_sessao, verificar_token
+from models import User 
 
 router = APIRouter(prefix='/categorias', tags=['categorias'])
 
 @router.post('/add')
-async def add_categoria(dados: CategoriaSchema, session = Depends(pegar_sessao)):
+async def add_categoria(dados: CategoriaSchema, session = Depends(pegar_sessao), usuario: User = Depends(verificar_token)):
     nova_categoria = Categoria(nome=dados.nome, url_imagem=dados.url_imagem)
     session.add(nova_categoria)
     session.commit()
