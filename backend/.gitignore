@@ -81,3 +81,5 @@ dmypy.json
 Thumbs.
 
 .env
+banco.db 
+assets
