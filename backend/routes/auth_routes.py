@@ -27,8 +27,8 @@ def autenticar_user(email, senha, session: Session):
     
     return usuario
 
-@router.post('/create')
-async def create_user(dados: UsuarioSchema, session: Session = Depends(pegar_sessao)):    
+@router.post('/cadastrar')
+async def cadastrar_usuario(dados: UsuarioSchema, session: Session = Depends(pegar_sessao)):    
     usuario = session.query(User).filter(User.email==dados.email).first()
 
     if usuario:
@@ -53,20 +53,6 @@ async def create_user(dados: UsuarioSchema, session: Session = Depends(pegar_ses
         }
     )
 
-
-@router.get('/list')
-async def list_all_users(session: Session = Depends(pegar_sessao)):
-    users = session.query(User).all()
-    return users
-    
-@router.patch('/edit/{id}')
-async def edit_user(id: int, dados: UsuarioSchema, session: Session = Depends(pegar_sessao)):
-    pass
-
-@router.delete('/delete/{id}')
-async def delete_user(id: int, session: Session = Depends(pegar_sessao)):
-    pass
-    
 @router.post('/login')
 async def login(dados: UsuarioSchema, session: Session = Depends(pegar_sessao)):
     usuario = autenticar_user(dados.email, dados.senha, session)

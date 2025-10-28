@@ -1,3 +1,5 @@
+from typing import List
+from fastapi import File, Form, UploadFile
 from pydantic import BaseModel
 
 class UsuarioSchema(BaseModel):
@@ -6,18 +8,23 @@ class UsuarioSchema(BaseModel):
     
     class Config:
         from_attributes = True
+        
 
-class CategoriaSchema(BaseModel):
-    nome: str
-    url_imagem: str
-    
-    class Config:
-        from_attributes = True
-    
 class ProdutoSchema(BaseModel):
+    id: int
     nome: str
     descricao: str
-    categoria_id: str
-    
+    url_imagem: str
+    ativo: bool
+
     class Config:
-        from_attributes = True
+        orm_mode = True
+
+class CategoriaComProdutosSchema(BaseModel):
+    id: int
+    nome: str
+    url_imagem: str
+    produtos: List[ProdutoSchema] = []
+
+    class Config:
+        orm_mode = True
