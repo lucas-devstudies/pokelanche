@@ -4,8 +4,8 @@
         class="arquivo file-input"
         accept="image/*"
         (change)="onFileSelected($event)"
-        [style.backgroundImage]="backgroundImage  ? backgroundImage : 'url(../assets/default.png)'"
-        />
+        [style.backgroundImage]="backgroundImage ? 'url(' + backgroundImage + ')' : 'url(../assets/default.png)'"
+    />
     <div class="bt d-flex justify-content-end">
         <img class="bt-selecionavel" src="../assets/icones/edit.svg">
     </div>

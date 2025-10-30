@@ -60,7 +60,7 @@ async def cadastrar_categoria(nome: str = Form(...),
     )
 
 @router.get("/listar")
-async def listar_categorias(session: Session = Depends(pegar_sessao), usuario: User = Depends(verificar_token)):
+async def listar_categorias(session: Session = Depends(pegar_sessao)):
     categorias = session.query(Categoria).all()
     return categorias
 

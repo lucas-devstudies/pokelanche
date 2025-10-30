@@ -9,8 +9,8 @@ import { Component, Input } from '@angular/core';
 })
 export class BotaoConfirmar {
   @Input()
-  texto!:String
+  texto!:string
 
   @Input()
-  variant: 'confirmar'| 'voltar' | 'branco' = "confirmar";
+  variant: 'confirmar'| 'voltar' | 'branco' | 'quadrado' = "confirmar";
 }

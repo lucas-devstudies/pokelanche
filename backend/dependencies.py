@@ -16,7 +16,7 @@ def pegar_sessao():
         
 def verificar_token(token: str = Depends(oauth2_schema), session: Session = Depends(pegar_sessao)):
     try:
-        dict_info = jwt.decode(token, SECRET_KEY, ALGORITHM)
+        dict_info = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         id_usuario = int(dict_info.get('sub'))
     except JWTError:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail='Acesso Negado')

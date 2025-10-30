@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalDetalhes } from './modal-detalhes';
+import { SelecionarTipo } from './selecionar-tipo';
 
-describe('ModalDetalhes', () => {
-  let component: ModalDetalhes;
-  let fixture: ComponentFixture<ModalDetalhes>;
+describe('SelecionarTipo', () => {
+  let component: SelecionarTipo;
+  let fixture: ComponentFixture<SelecionarTipo>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ModalDetalhes]
+      imports: [SelecionarTipo]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ModalDetalhes);
+    fixture = TestBed.createComponent(SelecionarTipo);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

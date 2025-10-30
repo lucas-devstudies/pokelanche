@@ -1,66 +1,22 @@
-.componentes{
-    padding: auto;
-    margin-top: 5%;
-    justify-content: center;
+html, body {
+  height: 100%;
+  margin: 0;
 }
-
-.logo{
-    box-shadow:  0 0px 4px rgba(0, 0, 0, 0.25);;
-    border-radius: 110px;
-    height: 163;
-    width: 163px;
-    margin-left: 23%;
-    margin-bottom: 20px;
+.container-fluid{
+    min-height: 100vh;
 }
-
-.letreiro{
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    margin-left: 20%;
-    //position: center;
-
-    color:#F3316B
-    
+h3{
+    font-family: "Atma",system-ui;
+    font-weight: 600;
+    font-style: normal;
 }
-
-//labels
-.label{
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 18px;
-    color: black;
+.div_botao{
+    border: 0.05rem solid #d0d0d0;
+    padding: 0.2rem 1rem;
 }
-
-//campos
-.campo{
-
-    padding-left: 10px;
-    width: 321px;
-    height: 40px;
-    border-radius: 8px;
-    border-width: 2px;
-    border-color: #D0D0D0
-    
-
-    
+.div_botao:focus-within {
+    border: 0.13rem solid #fb89cd8d;
 }
-//botao
-
-.div-botao{
-    margin-top: 20px;
-   // margin-left: 33%;
-    margin-bottom: 10%;
-    
+.input_botao:hover,:active{
+    border: none;
 }
-.botao-entrar{
-    border-radius: 8px;
-    width: 321px;
-    height: 41px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    background-color: #F3316B;
-}
-

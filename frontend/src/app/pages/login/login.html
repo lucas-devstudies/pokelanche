@@ -1,33 +1,44 @@
 
-<div class="container-fluid d-flex justify-content-between flex-column p-0 m-0 align-items-center">
-
-    <div class="componentes">
-        <div class="div-logo">
-            <img src="assets/Logo.png" alt="PokéLanche Logo" class="logo" id="logo">
-        </div>
-
-        <div class="letreiro-login">
-            <label class ="letreiro" for="logo">PokéLanche</label>
-        </div>
-
-        <form class = "form_login" action="POST">
-
-            <label for="login_usuario" class="label">Email: </label>
-            <p></p>
-            <input type="email" name="login_usuario" id="login_usuario" class="campo" placeholder="DoisBaloesEMeio@gmail.com" required>
-            <p></p>
-            <label for="senha_usuario" class="label">Senha:</label>
-            <p></p>
-            <input type="password" name="senha_usuario" id="senha_usuario" class="campo" placeholder="**********">
-            
-            <div class="div-botao">
-                <button type="submit" class="botao-entrar">
-                Entrar
-            </button>
-
+<div class="container-fluid d-flex p-0 m-0 align-items-center justify-content-center flex-column">
+    <div class="container align-items-center d-flex flex-column justify-content-center" style="max-width: 500px;">
+        <img src="assets/Logo.png" alt="PokéLanche Logo" style="width: 8rem; height: 8rem;border-radius: 300rem;box-shadow: 0 0 4px 0 var(--color-border);">
+        <h3 class ="text-center fw-bold fs-3 mb-4 mt-2" style="color:var(--color-primary);" for="logo">PokéLanche</h3>
+        
+        @if(erro){
+            <p class="mt-1 px-2 py-1" style="border:0.05rem solid var(--color-primary);color: var(--color-primary);background-color: #fd446f5d;border-radius: 1rem;">! Preencha todos os campos corretamente</p>
+        }
+        <form class = "form_login d-flex flex-column gap-3 w-100 px-5" action="POST">
+            <label for="login_usuario" class="fs-5 fw-bold">Email: </label>
+            <div class="input-group div_botao w-100 fs-5 align-items-center gap-2" style="border-radius: 0.5rem;">                
+                <img src="assets/icones/email.svg" alt="Logo" height="24" width="24" class="input-group-text p-0 border-0 bg-transparent">
+                <input 
+                    type="email" 
+                        name="email"
+                    [(ngModel)]="email"
+                    class="form-control border-0 shadow-none fs-5" 
+                    placeholder="email@gmail.com" 
+                    aria-label="Senha"
+                >
             </div>
-            
-            
+            <label for="senha_usuario" class="fs-5 fw-bold">Senha:</label>
+            <div class="input-group div_botao w-100 fs-5 align-items-center gap-2" style="border-radius: 0.5rem;">
+                <img src="assets/icones/lock.svg" alt="Logo" height="24" width="24" class="input-group-text p-0 border-0 bg-transparent">
+                <input 
+                    type="password"
+                    name="senha"
+                    [(ngModel)]="senha" 
+                    class="form-control border-0 shadow-none fs-5" 
+                    placeholder="*******" 
+                    aria-label="Senha"
+                >
+            </div>
+            <app-botao-confirmar
+                texto="Entrar"
+                variant="quadrado"
+                ngClass="mt-2 fw-bold"
+                (click)="logar()"
+                >
+            </app-botao-confirmar>
         </form>
     </div>
 </div>

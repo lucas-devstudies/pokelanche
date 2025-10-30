@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-img-selecionavel',
@@ -8,19 +8,22 @@ import { Component } from '@angular/core';
   styleUrl: './img-selecionavel.scss'
 })
 export class ImgSelecionavel {
-  backgroundImage: string = '';
+  backgroundImage:String = "";
+  selectedFile: File | null = null;
+  @Output() fileSelected = new EventEmitter<File>();
 
   onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
+  const input = event.target as HTMLInputElement;
+  if (input.files && input.files[0]) {
+    const file = input.files[0];
+    const reader = new FileReader();
 
-      reader.onload = () => {
-        this.backgroundImage = `url('${reader.result}')`;
-      };
+    reader.onload = () => {
+      this.backgroundImage = reader.result as string;
+      this.fileSelected.emit(file);
+    };
 
-      reader.readAsDataURL(file);
-    }
+    reader.readAsDataURL(file);
   }
+}
 }
