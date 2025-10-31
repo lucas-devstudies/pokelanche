@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, create_engine, Column, Integer, String, ForeignKey
+from sqlalchemy import Boolean, create_engine, Column, Double, Integer, String, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
 # Conexão do Banco
@@ -23,6 +23,7 @@ class Produto(Base):
     nome = Column(String, nullable=False)
     descricao = Column(String, nullable=False)
     url_imagem = Column(String, nullable=False)
+    preco = Column(Double, nullable=False)
     categoria_id = Column(Integer, ForeignKey('categorias.id'), nullable=False)
     ativo = Column(Boolean, default=True)
 

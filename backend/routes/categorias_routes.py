@@ -65,8 +65,7 @@ async def listar_categorias(session: Session = Depends(pegar_sessao)):
     return categorias
 
 @router.get("/listar_com_produtos", response_model=List[CategoriaComProdutosSchema])
-async def listar_categorias_com_produtos(session: Session = Depends(pegar_sessao), 
-                                         usuario: User = Depends(verificar_token)):
+async def listar_categorias_com_produtos(session: Session = Depends(pegar_sessao)):
     categorias = session.query(Categoria).options(joinedload(Categoria.produtos)).all()
     return categorias
 

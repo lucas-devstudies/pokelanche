@@ -28,10 +28,11 @@ async def cadastrar_produto(nome: str = Form(...),
                             descricao: str = Form(...),
                             categoria_id: int = Form(...),
                             imagem: UploadFile = File(...),
+                            preco: float = Form(...),
                             session: Session = Depends(pegar_sessao), 
                             usuario: User = Depends(verificar_token)):
     
-    novo_produto = Produto(nome=nome, descricao=descricao, url_imagem="", categoria_id=categoria_id)    
+    novo_produto = Produto(nome=nome, descricao=descricao, preco=preco, url_imagem="", categoria_id=categoria_id)    
     session.add(novo_produto)
     session.commit()
     session.refresh(novo_produto)
@@ -54,6 +55,7 @@ async def cadastrar_produto(nome: str = Form(...),
         content = {
             "id": novo_produto.id,
             "nome": novo_produto.nome,
+            "preco": novo_produto.preco,
             "url_imagem": novo_produto.url_imagem,
             "categoria": novo_produto.categoria.nome,
             "ativo": novo_produto.ativo,
@@ -78,6 +80,7 @@ async def buscar_produto_por_id(id: int,
 async def editar_produto(id: int,
                nome: str = Form(None),
                descricao: str = Form(None),
+               preco: float = Form(None),
                categoria_id: int = Form(None),
                imagem: UploadFile = File(None),
                ativo: bool = Form(None),
@@ -87,6 +90,7 @@ async def editar_produto(id: int,
     produto = buscar_por_id(id, session)
     if nome is not None: produto.nome = nome 
     if descricao is not None: produto.descricao = descricao
+    if preco is not None: produto.preco = preco
     if categoria_id is not None: produto.categoria_id = categoria_id
     if ativo is not None: produto.ativo = ativo
     
@@ -109,6 +113,8 @@ async def editar_produto(id: int,
         content = {
             "id": produto.id,
             "nome": produto.nome,
+            "descricao": produto.descricao,
+            "preco": produto.preco,
             "url_imagem": produto.url_imagem,
             "categoria": produto.categoria.nome,
             "ativo": produto.ativo,
