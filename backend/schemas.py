@@ -15,7 +15,8 @@ class ProdutoSchema(BaseModel):
     nome: str
     descricao: str
     url_imagem: str
-    ativo: bool
+    disponivel: bool
+    valor: float
 
     class Config:
         orm_mode = True

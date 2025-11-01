@@ -28,10 +28,13 @@ async def cadastrar_produto(nome: str = Form(...),
                             descricao: str = Form(...),
                             categoria_id: int = Form(...),
                             imagem: UploadFile = File(...),
+                            valor: float = Form(...),
                             session: Session = Depends(pegar_sessao), 
                             usuario: User = Depends(verificar_token)):
     
-    novo_produto = Produto(nome=nome, descricao=descricao, url_imagem="", categoria_id=categoria_id)    
+    print(nome, valor, descricao, categoria_id)
+    novo_produto = Produto(nome=nome, valor=valor, descricao=descricao, url_imagem="", categoria_id=categoria_id)    
+    print('nao deu erro')
     session.add(novo_produto)
     session.commit()
     session.refresh(novo_produto)
@@ -56,7 +59,8 @@ async def cadastrar_produto(nome: str = Form(...),
             "nome": novo_produto.nome,
             "url_imagem": novo_produto.url_imagem,
             "categoria": novo_produto.categoria.nome,
-            "ativo": novo_produto.ativo,
+            "disponivel": novo_produto.disponivel,
+            "valor": novo_produto.valor,
             "message": "Produto cadastrado com sucesso."
         }
     )
@@ -80,7 +84,7 @@ async def editar_produto(id: int,
                descricao: str = Form(None),
                categoria_id: int = Form(None),
                imagem: UploadFile = File(None),
-               ativo: bool = Form(None),
+               valor: float = Form(None),
                session: Session = Depends(pegar_sessao),
                usuario: User = Depends(verificar_token)):
     
@@ -88,7 +92,7 @@ async def editar_produto(id: int,
     if nome is not None: produto.nome = nome 
     if descricao is not None: produto.descricao = descricao
     if categoria_id is not None: produto.categoria_id = categoria_id
-    if ativo is not None: produto.ativo = ativo
+    if valor is not None: produto.valor = valor
     
     # Salva a nova imagem no servidor (em caso de alteração)
     if imagem is not None:
@@ -111,7 +115,8 @@ async def editar_produto(id: int,
             "nome": produto.nome,
             "url_imagem": produto.url_imagem,
             "categoria": produto.categoria.nome,
-            "ativo": produto.ativo,
+            "disponivel": produto.disponivel,
+            "valor": produto.valor,
             "message": "Produto atualizado com sucesso."
         }
     )
