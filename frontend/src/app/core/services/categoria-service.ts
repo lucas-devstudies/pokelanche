@@ -5,13 +5,15 @@ import { Categoria } from '../../shared/models/categoria';
 import { CategoriaCreateDTO } from '../../shared/models/categoriaCreateDTO';
 import { TokenService } from './token-service';
 import { toFormData } from '../utils/form-data.util';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaService {
 
-  API = "http://127.0.0.1:8000/categorias";
+  caminho = environment.apiUrl;
+  API = `${this.caminho}/categorias`;
 
   constructor(private http:HttpClient,private tokenService: TokenService){}
 
@@ -23,5 +25,8 @@ export class CategoriaService {
   }
   getAll():Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.API + '/listar_com_produtos');
+  }
+  getById(id:number):Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(`${this.API}/buscar_por_id/${id}`);
   }
 }

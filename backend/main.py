@@ -18,7 +18,8 @@ app.add_middleware(
 )
 
 # Configuração das rotas
-app.include_router(api_router)  
+app.include_router(api_router)
+  
 # Pasta de uploads para imagens
 current_dir = os.path.dirname(os.path.abspath(__file__))
 assets_path = os.path.join(current_dir, "assets")

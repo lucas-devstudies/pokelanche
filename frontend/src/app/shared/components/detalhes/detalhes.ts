@@ -13,6 +13,8 @@ export class Detalhes {
   @Input()
   produto!:Produto;
 
+  caminhoBackend = 'http://127.0.0.1:8000/';
+
   @Output() fechar = new EventEmitter<void>();
   fecharModal() {
     this.fechar.emit();

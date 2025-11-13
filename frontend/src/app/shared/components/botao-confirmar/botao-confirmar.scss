@@ -36,3 +36,13 @@
 .botao.branco:hover{
     background-color:#c0c0c055;
 }
+.botao.alert{
+    background-color:var(--color-alert);
+    color: white;
+    border: 0.01rem ;
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+}
+.botao.alert:hover{
+    opacity: 80%;
+}

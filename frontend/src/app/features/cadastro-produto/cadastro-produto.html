@@ -30,10 +30,14 @@
                     <input 
                         class="input-texto flew-grow-1 fs-5" 
                         style="text-align:right;padding-right:1rem;"  
-                        type="number" 
+                        type="text" 
                         [(ngModel)] = valor
+                        mask="separator.2"
+                        thousandSeparator="."
+                        decimalMarker=","
+                        prefix="R$ "
                         placeholder="0,00" step="any"
-                        >
+                    >
                 </div>
             </div>
         </div>

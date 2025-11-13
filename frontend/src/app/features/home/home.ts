@@ -7,6 +7,7 @@ import { Detalhes } from '../../shared/components/detalhes/detalhes';
 import { Produto } from '../../shared/models/produto';
 import { CategoriaService } from '../../core/services/categoria-service';
 import { Categoria } from '../../shared/models/categoria';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +21,7 @@ export class Home implements AfterViewInit {
   //Lógica pra abrir o modal com os detalhes dos produtos
   mostrarModal = false;
   produtoSelecionado: any = null;
-  caminho:string = '../../../../../backend/';
+  caminho:string = environment.apiUrl;
 
   ngAfterViewInit() {
     this.configurarScroll();

@@ -1,1 +1,22 @@
-<p>editar-categoria works!</p>
+<div class="container-fluid d-flex justify-content-between flex-column p-0 m-0 align-items-center">
+    <app-navbar-adm class="w-100"></app-navbar-adm>
+    <div class="container conteudo d-flex justify-content-between flex-column m-0">
+        <div class="container d-flex mt-5">
+            <app-botao-confirmar texto="Voltar" variant="voltar" (click)= "voltar()"></app-botao-confirmar>
+        </div>        
+        <div class="container d-flex flex-column align-items-center justify-content-center p-0" style="max-width:500px">
+            <app-img-selecionavel (fileSelected)="onImagemSelecionada($event)"></app-img-selecionavel>
+            <div class="conteudo container">
+                <label class="fw-bold fs-5">Nome</label>
+                <input class="input-texto w-100 mt-1" placeholder="Bebidas" [(ngModel)]="categoria.nome">
+            </div>
+        </div>
+        <div class="container mb-5" style="max-width:500px">
+            <app-botao-confirmar
+                texto="Salvar"
+                class="ativado w-100"
+                (click)="salvar()"
+            ></app-botao-confirmar>
+        </div>
+    </div>
+</div>

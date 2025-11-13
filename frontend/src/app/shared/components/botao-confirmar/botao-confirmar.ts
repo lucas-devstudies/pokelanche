@@ -12,5 +12,5 @@ export class BotaoConfirmar {
   texto!:string
 
   @Input()
-  variant: 'confirmar'| 'voltar' | 'branco' | 'quadrado' = "confirmar";
+  variant: 'confirmar'| 'voltar' | 'branco' | 'quadrado' | 'alert' = "confirmar";
 }

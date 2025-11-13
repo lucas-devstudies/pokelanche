@@ -5,10 +5,11 @@ import { NavbarAdm } from '../../core/components/navbar-adm/navbar-adm';
 import { CategoriaItem } from '../../shared/components/categoria-item/categoria-item';
 import { CategoriaService } from '../../core/services/categoria-service';
 import { Categoria } from '../../shared/models/categoria';
+import { BotaoConfirmar } from '../../shared/components/botao-confirmar/botao-confirmar';
 
 @Component({
   selector: 'app-home-admin',
-  imports: [NavbarAdm, CommonModule, CategoriaItem],
+  imports: [NavbarAdm, CommonModule, CategoriaItem,BotaoConfirmar],
   templateUrl: './home-admin.html',
   styleUrl: './home-admin.scss'
 })

@@ -1,12 +1,14 @@
-<div class="selecionavel d-flex justify-content-end flex-column">
-    <input 
-        type="file" 
-        class="arquivo file-input"
-        accept="image/*"
-        (change)="onFileSelected($event)"
-        [style.backgroundImage]="backgroundImage ? 'url(' + backgroundImage + ')' : 'url(../assets/default.png)'"
-    />
-    <div class="bt d-flex justify-content-end">
-        <img class="bt-selecionavel" src="../assets/icones/edit.svg">
-    </div>
+<div 
+  class="selecionavel d-flex justify-content-end flex-column">
+  <input 
+      type="file" 
+      class="arquivo file-input"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      [style.backgroundImage]="backgroundImage ? 'url(' + backgroundImage + ')' : 'url(../assets/default.png)'"
+  />
+  
+  <div class="bt d-flex justify-content-end">
+    <img class="bt-selecionavel" src="../assets/icones/edit.svg">
+  </div>
 </div>

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from '../../models/produto';
+import { ProdutosService } from '../../../core/services/produtos-service';
 
 @Component({
   selector: 'app-categoria-item',
@@ -13,7 +14,7 @@ export class CategoriaItem {
   @Input()
   produto!:Produto;
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private produtoService:ProdutosService){}
 
   ativo = true;
   mudarEstado(){
@@ -24,9 +25,18 @@ export class CategoriaItem {
       alert(this.produto.nome+" está ativado");
     }
   }
-  excluir(){
-    alert("Excluindo o botão "+this.produto.nome);
-
+  excluir() {
+    if (confirm('Tem certeza que deseja excluir este produto?')) {
+      this.produtoService.remove(this.produto.id).subscribe({
+        next: (res) => {
+          alert("Produto Removido com Sucesso");
+        },
+        error: (err) => {
+          alert('Erro ao excluir produto');
+          console.error(err);
+        }
+      });
+    }
   }
   editar(){
     this.router.navigate(['editar-produto',this.produto.id]);

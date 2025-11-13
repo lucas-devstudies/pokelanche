@@ -1,5 +1,6 @@
 .selecionavel{
     width: 10rem;
+    border: 300rem;
 }
 
 .arquivo::file-selector-button,-webkit-file-upload-button {
@@ -8,12 +9,11 @@
 .arquivo{
     width: 8rem;
     height: 8rem;    
+    border-radius: 300rem;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    color: transparent;
-    border-radius: 300rem;
-
+    color: transparent;    
 }
 .bt-selecionavel{
     position: relative;
@@ -23,7 +23,6 @@
     border: 0.05rem solid rgb(168, 163, 163);
     border-radius: 300px;
     padding: 0.2rem;
-
 }
 .bt{
     justify-content: end;

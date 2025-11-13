@@ -32,9 +32,7 @@ async def cadastrar_produto(nome: str = Form(...),
                             session: Session = Depends(pegar_sessao), 
                             usuario: User = Depends(verificar_token)):
     
-    print(nome, valor, descricao, categoria_id)
     novo_produto = Produto(nome=nome, valor=valor, descricao=descricao, url_imagem="", categoria_id=categoria_id)    
-    print('nao deu erro')
     session.add(novo_produto)
     session.commit()
     session.refresh(novo_produto)
@@ -76,7 +74,23 @@ async def buscar_produto_por_id(id: int,
                             session: Session = Depends(pegar_sessao),
                             usuario: User = Depends(verificar_token)):
     
-    return buscar_por_id(id, session)
+    produto = buscar_por_id(id, session)
+      
+    return JSONResponse(
+        status_code = status.HTTP_200_OK,
+        content = {
+            "produto": {
+                "id": produto.id,
+                "nome": produto.nome,
+                "descricao": produto.descricao,
+                "url_imagem": produto.url_imagem,
+                "categoria": produto.categoria.nome,
+                "disponivel": produto.disponivel,
+                "valor": produto.valor,
+            }, 
+            "categoria": produto.categoria.id 
+        }
+    )
 
 @router.patch('/editar/{id}')
 async def editar_produto(id: int,

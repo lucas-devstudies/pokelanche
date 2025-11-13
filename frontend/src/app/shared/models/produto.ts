@@ -1,8 +1,8 @@
 export class Produto{
     id!:number;
-    nome!:String;
-    descricao!:String;
-    url_imagem!:String;
+    nome!:string;
+    descricao!:string;
+    url_imagem!:string;
     disponivel!:boolean;
     valor!:number;
 }

@@ -9,10 +9,11 @@ import { CategoriaService } from '../../core/services/categoria-service';
 import { FormsModule } from "@angular/forms";
 import { ProdutoCreateDTO } from '../../shared/models/produtoCreateDTO';
 import { ProdutosService } from '../../core/services/produtos-service';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: 'app-cadastro-produto',
-  imports: [BotaoConfirmar, NavbarAdm, ImgSelecionavel, CommonModule, FormsModule],
+  imports: [BotaoConfirmar, NavbarAdm, ImgSelecionavel, CommonModule, FormsModule,NgxMaskDirective],
   templateUrl: './cadastro-produto.html',
   styleUrl: './cadastro-produto.scss'
 })

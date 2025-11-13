@@ -1,7 +1,7 @@
 export interface ProdutoCreateDTO {
   nome: string;
-  descricao: String;
-  categoria_id:Number;
+  descricao: string;
+  categoria_id: number;
   imagem: File;
   valor: number;
 }
