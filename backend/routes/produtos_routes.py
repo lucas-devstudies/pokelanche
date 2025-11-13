@@ -136,3 +136,29 @@ async def deletar_produto_por_id(id: int,
             "message": "Produto deletado com sucesso."
         }
     )
+    
+@router.patch('/alterar_estado/{id}')
+async def alterar_estado(id: int,
+               session: Session = Depends(pegar_sessao),
+               usuario: User = Depends(verificar_token)):
+    
+    produto = buscar_por_id(id, session)
+    if produto.ativo == True: produto.ativo = False 
+    else: produto.ativo = True
+    
+    session.commit()
+    session.refresh(produto)
+    
+    return JSONResponse(
+        status_code = status.HTTP_200_OK,
+        content = {
+            "id": produto.id,
+            "nome": produto.nome,
+            "descricao": produto.descricao,
+            "preco": produto.preco,
+            "url_imagem": produto.url_imagem,
+            "categoria": produto.categoria.nome,
+            "ativo": produto.ativo,
+            "message": "Produto com estado alterado."
+        }
+    )
