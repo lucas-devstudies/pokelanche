@@ -1,0 +1,71 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  height: 100vh;
+}
+.conteudo{
+    height: auto;
+}
+.input-texto{
+    border: 0.05rem solid var(--color-border);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+.input-texto-alto{
+    border-radius: 1rem;
+    min-height: 5rem;
+    height: auto;
+    resize: none;
+    overflow-y: hidden;
+}
+.input-opcao{
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-size: 1rem;
+    border: none;
+    width: 100%;
+}
+
+.input-opcao:focus{
+    outline: none; 
+    box-shadow: none; 
+    border-color: transparent; 
+}
+
+.input-valor {
+    border: 0.05rem solid var(--color-border);
+    border-radius: 2rem;
+    padding: 0 1rem;
+}
+
+.input-valor .prefixo {
+    color: #777;
+    margin-right: 0.5rem;
+}
+
+.input-valor .input-texto {
+    border: none;
+    outline: none;
+    padding: 0.5rem 0;
+    flex: 1;
+    background: transparent;
+}
+
+
+/*Para a remoção de estilo padrão de input de número*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}

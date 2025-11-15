@@ -38,7 +38,8 @@
 }
 .botao.alert{
     background-color:var(--color-alert);
-    color: white;
+    color: black;
+    font-weight: 600;
     border: 0.01rem ;
     padding: 0.4rem 1rem;
     cursor: pointer;

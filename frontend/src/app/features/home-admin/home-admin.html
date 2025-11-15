@@ -2,15 +2,16 @@
   <app-navbar-adm class="w-100" style="z-index: 2;"></app-navbar-adm>
 
   <div class="container conteudo d-flex justify-content-between flex-column m-0 mt-5">
-    
     <div
     class="mt-4 container gap-4 d-flex flex-column align-items-center justify-content-center p-0 my-5"
     style="max-width: 500px">
-    <div class="w-100 d-flex justify-content-end">
+    <div class="w-100 d-flex justify-content-between">
+      <h2 class="fs-4 fw-bold">Dash Produtos</h2>
       <app-botao-confirmar
         texto="Editar Categorias"
         variant="alert"
         style="min-width:50%"
+        (click)="dash()"
         >
       </app-botao-confirmar>
     </div>
@@ -19,16 +20,17 @@
             <div 
                 class="selected" 
                 [class.open]="dropdownAberto[i]" 
-                (click)="toggleDropdown(i)">
+                (click)="toggleDropdown(i)"
+            >
               <label class="form-label fw-bold w-100 pe-3" style="overflow:hidden;text-overflow: ellipsis;">{{ categoria.nome }}</label>
             </div>
             <div class="dropdown-options" *ngIf="dropdownAberto[i]">
-                <app-categoria-item
+                <app-produto-item
                   *ngFor="let produto of categoria.produtos"
                   [produto]=produto
-                  (click)="selecionarProduto(categoria, produto, i)"
+                  (click) = "reflash()"
                 >
-                </app-categoria-item>
+                </app-produto-item>
             </div>
         </div>
       </div>

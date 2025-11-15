@@ -1,0 +1,18 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+.container-fluid {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.box-categorias{
+  border: 1px solid var(--color-no-border);
+  width: 500px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 0 4px 0 var(--color-border);
+
+}

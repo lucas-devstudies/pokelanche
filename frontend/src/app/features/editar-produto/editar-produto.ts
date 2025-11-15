@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Categoria } from '../../shared/models/categoria';
 import { CategoriaService } from '../../core/services/categoria-service';
 import { FormsModule } from "@angular/forms";
-import { ProdutoCreateDTO } from '../../shared/models/produtoCreateDTO';
+import { ProdutoDTO } from '../../shared/models/produtoDTO';
 import { ProdutosService } from '../../core/services/produtos-service';
 import { NavbarAdm } from '../../core/components/navbar-adm/navbar-adm';
 import { BotaoConfirmar } from '../../shared/components/botao-confirmar/botao-confirmar';
@@ -24,7 +24,7 @@ export class EditarProduto {
   @Input() produto: Produto = new Produto();
   img: string = '';
   caminho = environment.apiUrl;
-  prodDTO= {} as ProdutoCreateDTO;
+  prodDTO= {} as ProdutoDTO;
 
   constructor(
     private router: Router,
@@ -99,19 +99,17 @@ export class EditarProduto {
   }
 
   salvar() {
-    if (!this.produto.nome || !this.produto.url_imagem || !this.produto.descricao || this.produto.valor <= 0) {
+    this.parseDTO();
+    if (!this.produto.nome || !this.produto.url_imagem || !this.produto.descricao || this.produto.valor<=0) {
       alert("Preencha todos os campos corretamente");
       return;
     }
-
-    this.parseDTO();
-
-    this.produtoService.add(this.prodDTO).subscribe({
-      next: () => {
-        alert('Produto atualizado com sucesso!');
+    this.produtoService.update(this.prodDTO,this.produto.id).subscribe({
+      next: (res) => {
+        alert('Categoria editada com sucesso!');
         this.router.navigate(['/home-admin']);
       },
-      error: err => console.error(err)
+      error: (err) => console.error(err)
     });
   }
 

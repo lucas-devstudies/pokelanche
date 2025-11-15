@@ -3,6 +3,8 @@ import { Component, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Produto } from '../../models/produto';
 import { ProdutosService } from '../../../core/services/produtos-service';
+import { Categoria } from '../../models/categoria';
+import { CategoriaService } from '../../../core/services/categoria-service';
 
 @Component({
   selector: 'app-categoria-item',
@@ -12,22 +14,12 @@ import { ProdutosService } from '../../../core/services/produtos-service';
 })
 export class CategoriaItem {
   @Input()
-  produto!:Produto;
+  categoria!:Categoria;
+  constructor(private router:Router,private categoriaService:CategoriaService){}
 
-  constructor(private router:Router,private produtoService:ProdutosService){}
-
-  ativo = true;
-  mudarEstado(){
-    this.ativo = !this.ativo;
-    if(this.ativo==false){
-      alert(this.produto.nome+" está desativado");
-    }else{
-      alert(this.produto.nome+" está ativado");
-    }
-  }
   excluir() {
     if (confirm('Tem certeza que deseja excluir este produto?')) {
-      this.produtoService.remove(this.produto.id).subscribe({
+      this.categoriaService.remove(this.categoria.id).subscribe({
         next: (res) => {
           alert("Produto Removido com Sucesso");
         },
@@ -39,6 +31,9 @@ export class CategoriaItem {
     }
   }
   editar(){
-    this.router.navigate(['editar-produto',this.produto.id]);
+    this.router.navigate(['editar-categoria',this.categoria.id]);
+  }
+  alterarEstado(){
+    
   }
 }

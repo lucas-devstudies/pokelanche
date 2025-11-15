@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { CategoriaCreateDTO } from '../../shared/models/categoriaCreateDTO';
+import { CategoriaDTO } from '../../shared/models/categoriaDTO';
 import { NavbarAdm } from '../../core/components/navbar-adm/navbar-adm';
 import { ImgSelecionavel } from '../../shared/components/img-selecionavel/img-selecionavel';
 import { BotaoConfirmar } from '../../shared/components/botao-confirmar/botao-confirmar';
@@ -31,11 +31,11 @@ export class CadastroCategoria {
       alert('Preencha o nome e selecione uma imagem!');
       return;
     }
-    const categoriaCreateDTO: CategoriaCreateDTO = {
+    const CategoriaDTO: CategoriaDTO = {
       nome: this.nome,
       imagem: this.imagemSelecionada
     };
-    this.categoriaService.add(categoriaCreateDTO).subscribe({
+    this.categoriaService.add(CategoriaDTO).subscribe({
     next: (res) => {
       alert('Categoria cadastrada com sucesso!');
       this.router.navigate(['/home-admin']);

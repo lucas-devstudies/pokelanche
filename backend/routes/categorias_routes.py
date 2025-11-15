@@ -60,12 +60,14 @@ async def cadastrar_categoria(nome: str = Form(...),
     )
 
 @router.get("/listar")
-async def listar_categorias(session: Session = Depends(pegar_sessao)):
+async def listar_categorias(session: Session = Depends(pegar_sessao), 
+                            usuario: User = Depends(verificar_token)):
     categorias = session.query(Categoria).all()
     return categorias
 
 @router.get("/listar_com_produtos", response_model=List[CategoriaComProdutosSchema])
-async def listar_categorias_com_produtos(session: Session = Depends(pegar_sessao)):
+
+async def listar_categorias_com_produtos(session: Session = Depends(pegar_sessao),):
     categorias = session.query(Categoria).options(joinedload(Categoria.produtos)).all()
     return categorias
 
@@ -76,3 +78,57 @@ async def buscar_categoria_por_id(id: int,
     
     return categoria_por_id(id, session)
 
+@router.patch('/editar/{id}')
+async def editar_produto(id: int,
+               nome: str = Form(None),
+               imagem: UploadFile = File(None),
+               session: Session = Depends(pegar_sessao),
+               usuario: User = Depends(verificar_token)):
+    
+    categoria = categoria_por_id(id, session)
+    if nome is not None: categoria.nome = nome 
+    
+    # Salva a nova imagem no servidor (em caso de alteração)
+    if imagem is not None:
+        extensao = imagem.filename.split('.')[-1]
+        nome_arquivo = f'categoria_{categoria.id}.{extensao}'
+        url_imagem = os.path.join(UPLOAD_DIR, nome_arquivo)
+        
+        with open(url_imagem, "wb") as buffer:
+            shutil.copyfileobj(imagem.file, buffer)
+            
+        categoria.url_imagem = f"/{UPLOAD_DIR}/{nome_arquivo}"
+    
+    session.commit()
+    session.refresh(categoria)
+    
+    return JSONResponse(
+        status_code = status.HTTP_200_OK,
+        content = {
+            "id": categoria.id,
+            "nome": categoria.nome,
+            "url_imagem": categoria.url_imagem,
+            "message": "Categoria atualizada com sucesso."
+        }
+    )
+    
+@router.delete('/deletar/{id}')
+async def deletar_produto_por_id(id: int,
+                                 session: Session = Depends(pegar_sessao),
+                                 usuario: User = Depends(verificar_token)):
+    
+    categoria = categoria_por_id(id, session)
+    
+    caminho = categoria.url_imagem
+    if os.path.exists(caminho):
+        os.remove(caminho)
+    
+    session.delete(categoria)
+    session.commit()
+    
+    return JSONResponse(
+        status_code = status.HTTP_200_OK,
+        content = {
+            "message": "Categoria deletada com sucesso."
+        }
+    )

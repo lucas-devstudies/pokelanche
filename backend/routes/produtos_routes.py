@@ -96,7 +96,8 @@ async def buscar_produto_por_id(id: int,
 async def editar_produto(id: int,
                nome: str = Form(None),
                descricao: str = Form(None),
-               categoria_id: int = Form(None),
+               #coloquei pra tentar deixar a edição sem colocar a categoria do produto alterável
+               #categoria_id: int = Form(None),
                imagem: UploadFile = File(None),
                valor: float = Form(None),
                session: Session = Depends(pegar_sessao),
@@ -105,7 +106,6 @@ async def editar_produto(id: int,
     produto = buscar_por_id(id, session)
     if nome is not None: produto.nome = nome 
     if descricao is not None: produto.descricao = descricao
-    if categoria_id is not None: produto.categoria_id = categoria_id
     if valor is not None: produto.valor = valor
     
     # Salva a nova imagem no servidor (em caso de alteração)
@@ -153,5 +153,31 @@ async def deletar_produto_por_id(id: int,
         status_code = status.HTTP_200_OK,
         content = {
             "message": "Produto deletado com sucesso."
+        }
+    )
+
+@router.patch('/alterar_estado/{id}')
+async def alterar_estado(id: int,
+               session: Session = Depends(pegar_sessao),
+               usuario: User = Depends(verificar_token)):
+    
+    produto = buscar_por_id(id, session)
+    if produto.ativo == True: produto.ativo = False 
+    else: produto.ativo = True
+    
+    session.commit()
+    session.refresh(produto)
+    
+    return JSONResponse(
+        status_code = status.HTTP_200_OK,
+        content = {
+            "id": produto.id,
+            "nome": produto.nome,
+            "descricao": produto.descricao,
+            "preco": produto.preco,
+            "url_imagem": produto.url_imagem,
+            "categoria": produto.categoria.nome,
+            "ativo": produto.ativo,
+            "message": "Produto com estado alterado."
         }
     )

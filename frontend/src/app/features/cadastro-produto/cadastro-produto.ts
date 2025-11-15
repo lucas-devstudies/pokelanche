@@ -7,7 +7,7 @@ import { ImgSelecionavel } from '../../shared/components/img-selecionavel/img-se
 import { Categoria } from '../../shared/models/categoria';
 import { CategoriaService } from '../../core/services/categoria-service';
 import { FormsModule } from "@angular/forms";
-import { ProdutoCreateDTO } from '../../shared/models/produtoCreateDTO';
+import { ProdutoDTO } from '../../shared/models/produtoDTO';
 import { ProdutosService } from '../../core/services/produtos-service';
 import { NgxMaskDirective } from 'ngx-mask';
 
@@ -55,7 +55,7 @@ export class CadastroProduto {
           alert("Preencha todos os campos corretamente");
           return;
         }
-        const ProdutoCreateDTO: ProdutoCreateDTO = {
+        const ProdutoCreateDTO: ProdutoDTO = {
           nome: this.nome,
           imagem: this.imagemSelecionada,
           categoria_id: this.categoriaSelecionadaId,

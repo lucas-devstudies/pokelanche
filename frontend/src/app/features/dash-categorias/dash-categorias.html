@@ -1,0 +1,17 @@
+<div class="container-fluid d-flex flex-column p-0 mx-0 align-items-center">
+    <app-navbar-adm class="w-100"></app-navbar-adm>
+    <div class="container conteudo d-flex justify-content-between align-items-center flex-column m-0 mt-3">
+        <div class="container d-flex mt-5 mb-3">
+            <app-botao-confirmar (click)="voltar()" texto="Voltar" variant="voltar" ></app-botao-confirmar>
+        </div>        
+        <div class="box-categorias d-flex flex-column align-items-center justify-content-center p-0">
+            <h3 class="d-flex w-100 fs-5 fw-bold py-2 m-0 text-center justify-content-center" style="background-color: var(--color-primary);color:white;">Dash de Categorias</h3>
+            @for (categoria of listaCategorias; track $index) {
+                    <app-categoria-item
+                        style="width:100%;"
+                        [categoria]="categoria">
+                    </app-categoria-item>
+            }
+        </div>
+    </div>
+</div>

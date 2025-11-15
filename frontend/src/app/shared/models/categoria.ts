@@ -1,8 +1,8 @@
 import { Produto } from "./produto";
 
 export class Categoria{
+    nome!:string;
+    url_imagem!:string;
     id!:number;
-    nome!:String;
-    url!:String;
     produtos!:Produto[];
 }
