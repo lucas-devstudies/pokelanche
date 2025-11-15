@@ -41,6 +41,6 @@ export class ProdutosService {
   }
   state(id:number){
     const headers = this.tokenService.getAuthHeaders();
-    return this.http.patch<Produto>(`${this.API}/alterar_estado/${id}`,{headers});
+    return this.http.patch<Produto>(`${this.API}/alterar_estado/${id}`,null,{headers});
   }
 }

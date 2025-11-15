@@ -162,8 +162,8 @@ async def alterar_estado(id: int,
                usuario: User = Depends(verificar_token)):
     
     produto = buscar_por_id(id, session)
-    if produto.ativo == True: produto.ativo = False 
-    else: produto.ativo = True
+    if produto.disponivel == True: produto.disponivel = False 
+    else: produto.disponivel = True
     
     session.commit()
     session.refresh(produto)
@@ -174,10 +174,10 @@ async def alterar_estado(id: int,
             "id": produto.id,
             "nome": produto.nome,
             "descricao": produto.descricao,
-            "preco": produto.preco,
+            "valor": produto.valor,
             "url_imagem": produto.url_imagem,
             "categoria": produto.categoria.nome,
-            "ativo": produto.ativo,
+            "disponivel": produto.disponivel,
             "message": "Produto com estado alterado."
         }
     )
