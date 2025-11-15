@@ -36,12 +36,13 @@ export class ProdutoItem {
   }
   alterarEstado(){
     this.produtoService.state(this.produto.id).subscribe({
-      next:dados=>{
-        console.log("Estado alterado com sucesso");
-      },
-      error(err) {
-          alert("Erro ao alterar Estado" + err.message);
-      },
+      next: (res) => {
+          alert("Produto Removido com Sucesso");
+        },
+        error: (err) => {
+          alert('Erro ao alterar estado de produto' + err.message);
+          console.error(err);
+        }
     })
   }
 }
