@@ -88,7 +88,7 @@ findAllByCategoria() {
   }
 
   voltar() {
-    this.router.navigate(['home-admin']);
+    this.router.navigate(['/dash-categorias']);
   }
 
   salvar() {

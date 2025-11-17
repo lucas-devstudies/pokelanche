@@ -22,6 +22,7 @@ export class Home implements AfterViewInit {
   mostrarModal = false;
   produtoSelecionado: any = null;
   caminho:string = environment.apiUrl;
+  list:Categoria[] = [];
 
   ngAfterViewInit() {
     this.configurarScroll();
@@ -36,7 +37,13 @@ export class Home implements AfterViewInit {
     this.mostrarModal = false;
     this.produtoSelecionado = null;
   }
-
+  validarLista(){
+    for(const categoria of this.list){
+      if (categoria.produtos.length>0){
+        this.listaCategorias.push(categoria);
+      }
+    }
+  }
   //Estrutura pra carregar dados
   categoriaService = inject(CategoriaService);
   listaCategorias: Categoria[] = [];
@@ -47,7 +54,8 @@ export class Home implements AfterViewInit {
   findAll() {
     this.categoriaService.getAll().subscribe({
       next: dados => {
-        this.listaCategorias = Array.isArray(dados) ? dados : [];
+        this.list = Array.isArray(dados) ? dados : [];
+        this.validarLista();
       },
       error: err => {
         alert(JSON.stringify(err));

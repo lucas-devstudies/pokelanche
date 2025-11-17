@@ -11,6 +11,10 @@ html, body {
 .scrollspy-example {
   flex: 1;
   overflow-y: auto;
+  width: 300px;
+  min-height: max-content !important;
+  height: max-content !important;
+  align-items: flex-start !important;
 }
 
 .bg-body-tertiary{

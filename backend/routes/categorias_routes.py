@@ -7,6 +7,9 @@ from dependencies import pegar_sessao, verificar_token
 from models import User 
 from sqlalchemy.orm import Session, joinedload
 import os
+from models import Produto
+from sqlalchemy import select
+
 
 from schemas import CategoriaComProdutosSchema
 
@@ -79,7 +82,7 @@ async def buscar_categoria_por_id(id: int,
     return categoria_por_id(id, session)
 
 @router.patch('/editar/{id}')
-async def editar_produto(id: int,
+async def editar_categoria(id: int,
                nome: str = Form(None),
                imagem: UploadFile = File(None),
                session: Session = Depends(pegar_sessao),
@@ -97,7 +100,7 @@ async def editar_produto(id: int,
         with open(url_imagem, "wb") as buffer:
             shutil.copyfileobj(imagem.file, buffer)
             
-        categoria.url_imagem = f"/{UPLOAD_DIR}/{nome_arquivo}"
+        categoria.url_imagem = f"{UPLOAD_DIR}/{nome_arquivo}"
     
     session.commit()
     session.refresh(categoria)
@@ -113,11 +116,22 @@ async def editar_produto(id: int,
     )
     
 @router.delete('/deletar/{id}')
-async def deletar_produto_por_id(id: int,
+async def deletar_categoria_por_id(id: int,
                                  session: Session = Depends(pegar_sessao),
                                  usuario: User = Depends(verificar_token)):
     
     categoria = categoria_por_id(id, session)
+    
+    # verifica se há produtos usando essa categoria
+    produtos = session.execute(
+        select(Produto).where(Produto.categoria_id == id)
+    ).scalars().all()
+
+    if produtos:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Não é possível deletar a categoria, pois há produtos vinculados a ela."
+        )
     
     caminho = categoria.url_imagem
     if os.path.exists(caminho):

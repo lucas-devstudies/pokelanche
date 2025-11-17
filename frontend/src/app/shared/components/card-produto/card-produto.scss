@@ -19,10 +19,14 @@ p{
     -ms-user-select: none;
     -webkit-user-select: none;
 }
-
+.indisponivel{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+}
 @media(max-width:720px) {
     .card{
-        width: 8rem;
+        width: 11rem;
+        height: 13rem;
     }
     .card h3{
         font-size: 0.6rem;
@@ -37,13 +41,8 @@ p{
 
 // Hover
 .card:hover{
-    background-color: #f2f2f2;
-    box-shadow: 0 0 20px 0 var(--color-border);
+    box-shadow: 0 0 10px 0 var(--color-border);
 }
-.foto:hover{
-    box-shadow: 0 0 4px 0 var(--color-border);
-}
-
 // animação
 @keyframes fromBottom {
     from{

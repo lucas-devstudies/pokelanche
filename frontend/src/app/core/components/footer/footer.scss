@@ -10,3 +10,26 @@
     text-align: center;
     width: 100%;
 }
+@media(max-width: 720px){
+    .footer_comp{
+        width: 100%;
+        display: flex;
+        justify-content: space-between !important;
+        padding: 0.8rem 1rem;
+    }
+    .titulo,.texto{
+        position: static !important;
+        left: auto !important;
+        z-index: auto !important;
+        display: flex !important;
+        padding: 0;
+        margin: 0;
+    }
+    .titulo{
+        width: min-content;
+    }
+    .texto{
+        width: auto;
+        text-align: left !important;
+    }
+}

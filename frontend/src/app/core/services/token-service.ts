@@ -22,6 +22,10 @@ export class TokenService {
   logout():void{
     localStorage.removeItem('token');
   }
+  getRefreshToken() {
+    return localStorage.getItem('refresh_token');
+  }
+
   isTokenValid(): boolean {
     const token = this.getToken();
     if (!token) return false;

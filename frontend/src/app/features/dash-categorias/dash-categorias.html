@@ -9,7 +9,8 @@
             @for (categoria of listaCategorias; track $index) {
                     <app-categoria-item
                         style="width:100%;"
-                        [categoria]="categoria">
+                        [categoria]="categoria"
+                        (click) = "getAll()">
                     </app-categoria-item>
             }
         </div>

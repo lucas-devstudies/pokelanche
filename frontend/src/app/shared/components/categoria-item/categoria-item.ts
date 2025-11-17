@@ -18,13 +18,13 @@ export class CategoriaItem {
   constructor(private router:Router,private categoriaService:CategoriaService){}
 
   excluir() {
-    if (confirm('Tem certeza que deseja excluir este produto?')) {
+    if (confirm('Tem certeza que deseja excluir esta categoria?')) {
       this.categoriaService.remove(this.categoria.id).subscribe({
         next: (res) => {
-          alert("Produto Removido com Sucesso");
+          alert("Categoria removida com sucesso");
         },
         error: (err) => {
-          alert('Erro ao excluir produto: '+ err.error.detail);
+          alert('Erro ao excluir categoria: '+ err.error.detail);
           console.log(err);
         }
       });

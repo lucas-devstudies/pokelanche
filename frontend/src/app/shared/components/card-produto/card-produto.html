@@ -1,5 +1,12 @@
-<div class="card card-produto" style="border-radius: 1rem;">
-    <img [src]="caminhoBackend + url" class="w-100 foto" alt="{{titulo}}" style="object-fit: cover;height:auto;">
-    <h3 class="my-1 text-center fs-6 fw-bold" style="overflow: hidden;text-overflow: ellipsis;">{{titulo}}</h3>
-    <p class="mb-1 text-justify fs-5 text-center fw-bold">{{valor | currency:'BRL'}}</p>
+<div class="card card-produto" style="border-radius: 1rem; background-color: white;">
+    @if (disponivel == true) {
+        <img [src]="caminhoBackend + url" class="w-100 foto" alt="{{titulo}}" style="object-fit: cover;height:80%;">
+        <h3 class="my-1 text-center fs-6 fw-bold" style="overflow: hidden;text-overflow: ellipsis; height: min-content; line-height: 1.5rem;">{{titulo}}</h3>
+        <p class="mb-1 text-justify fs-5 text-center fw-bold">{{valor | currency:'BRL'}}</p>
+    }
+    @else{
+        <img [src]="caminhoBackend + url" class="w-100 foto indisponivel" alt="{{titulo}}" style="object-fit: cover;height:80%;">
+        <h3 class="my-1 text-center fs-6 fw-bold indisponivel" style="overflow: hidden;text-overflow: ellipsis;height: min-content; line-height: 1.5rem;">{{titulo}}</h3>
+        <p class="mb-1 text-justify fs-5 text-center fw-bold indisponivel">{{valor | currency:'BRL'}}</p>
+    }
 </div>
