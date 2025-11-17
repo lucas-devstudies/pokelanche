@@ -39,7 +39,7 @@ export class HomeAdmin {
     this.dropdownAberto[index] = !this.dropdownAberto[index];
   }
   criar(){
-    this.router.navigate(['/selecionar-tipo']);
+    this.router.navigate(['/cadastro-produto']);
   }
   reflash(){
     this.getAll();

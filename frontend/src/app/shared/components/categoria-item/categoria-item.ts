@@ -24,8 +24,8 @@ export class CategoriaItem {
           alert("Produto Removido com Sucesso");
         },
         error: (err) => {
-          alert('Erro ao excluir produto');
-          console.error(err);
+          alert('Erro ao excluir produto: '+ err.error.detail);
+          console.log(err);
         }
       });
     }

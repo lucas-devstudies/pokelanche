@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { TokenUsuario } from '../../shared/models/token';
 import { BotaoConfirmar } from '../../shared/components/botao-confirmar/botao-confirmar';
 import { Auth } from '../../core/auth/auth';
 

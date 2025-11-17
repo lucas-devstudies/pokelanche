@@ -10,15 +10,7 @@
                 <label class="fw-bold fs-5 mt-2">Nome</label>
                 <input class="input-texto w-100 mt-2 fs-5" placeholder="X-Pokémon" [(ngModel)]="produto.nome">
                 <label class="fw-bold fs-5 mt-2">Categoria</label>
-                <div class="position-relative input-texto w-100 d-flex">
-                    <!-- Perguntar do Matheus se o id da categoria edita também -->
-                    <select class="input-opcao pe-5 fs-5" [(ngModel)]="produto.id">
-                        <option *ngFor="let categoria of listaCategorias" [value]="produto.id">
-                            {{ categoria.nome }}
-                        </option>
-                    </select>
-                    <img src="assets/icones/down.svg" alt="seta" class="icone-select">
-                </div>
+                <p class="input-texto fs-5" style="background-color: #e9e6e6bd;">{{categoria}}</p>
                 <label class="fw-bold fs-5 mt-2">Descrição</label>
                 <textarea 
                     class="input-texto-alto input-texto w-100 fs-5" 

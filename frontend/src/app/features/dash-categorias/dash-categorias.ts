@@ -31,7 +31,7 @@ export class DashCategorias {
     });
   }
   criar(){
-    
+    this.router.navigate(['/cadastro-categoria']);
   }
   voltar(){
     this.router.navigate(['/home-admin']);

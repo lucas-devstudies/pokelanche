@@ -117,7 +117,7 @@ async def editar_produto(id: int,
         with open(url_imagem, "wb") as buffer:
             shutil.copyfileobj(imagem.file, buffer)
             
-        produto.url_imagem = f"/{UPLOAD_DIR}/{nome_arquivo}"
+        produto.url_imagem = f"{UPLOAD_DIR}/{nome_arquivo}"
     
     session.commit()
     session.refresh(produto)

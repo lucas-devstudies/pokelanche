@@ -24,6 +24,7 @@ export class EditarProduto {
   @Input() produto: Produto = new Produto();
   img: string = '';
   caminho = environment.apiUrl;
+  categoria: string = "";
   prodDTO= {} as ProdutoDTO;
 
   constructor(
@@ -39,7 +40,6 @@ export class EditarProduto {
     this.id = Number(this.activatedRoute.snapshot.paramMap.get('id'));
     this.findById();
     this.onImagemSelecionada(this.prodDTO.imagem);
-    this.findAllByCategoria();
   }
 
   async findById() {
@@ -48,7 +48,7 @@ export class EditarProduto {
       this.produto = dados.produto;
       this.img = dados.produto.url_imagem;
       this.img = `${this.caminho.replace(/\/$/, '')}/${this.img.replace(/^\//, '')}`;
-
+      this.categoria = dados.produto.categoria;
       await this.converte();
     },
     error: err => console.error(err)
@@ -69,28 +69,17 @@ export class EditarProduto {
   }
 
   async urlToFile(url: string, filename: string): Promise<File> {
-  const response = await fetch(url);
+    const response = await fetch(url);
 
-  if (!response.ok) {
-    throw new Error(`Erro HTTP ${response.status}: ${response.statusText}`);
+    if (!response.ok) {
+      throw new Error(`Erro HTTP ${response.status}: ${response.statusText}`);
+    }
+    const blob = await response.blob();
+    return new File([blob], filename, { type: blob.type });
   }
-  const blob = await response.blob();
-  return new File([blob], filename, { type: blob.type });
-}
-
-  findAllByCategoria() {
-    this.categoriaService.getAll().subscribe({
-      next: dados => {
-        this.listaCategorias = Array.isArray(dados) ? dados : [];
-      },
-      error: err => console.error(err)
-    });
-  }
-
   parseDTO() {
     this.prodDTO.nome = this.produto.nome;
     this.prodDTO.descricao = this.produto.descricao;
-    this.prodDTO.categoria_id = this.produto.id;
     this.prodDTO.valor = this.produto.valor;
   }
 
