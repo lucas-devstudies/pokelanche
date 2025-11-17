@@ -97,7 +97,7 @@ Acesse:
 ---
 
 # 🛑 4. Atenção
-É necessário que haja um usuário administrador no sistema. Acesse ´´´http://localhost:8000/docs´´´
+É necessário que haja um usuário administrador no sistema. Acesse `http://localhost:8000/docs`
 
 Na rota /auth/cadastrar preencha os campos de email e senha. Com isso feito, posteriormente você poderá acessar a dash do administrador no sistema.
 
@@ -121,7 +121,7 @@ Acesse:
 `http://localhost:4200`
 
 Observação: para acessar o painel de administrador, acesse:
-´´´http://localhost:4200/login´´´
+`http://localhost:4200/login`
 
 ---
 
