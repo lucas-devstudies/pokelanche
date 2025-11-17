@@ -1,4 +1,4 @@
-![Imagem do projeto] (imagem.png)
+![Imagem do projeto](imagem.png)
 
 # 🍔 Pokelanche
 
