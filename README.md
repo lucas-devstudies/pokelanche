@@ -96,7 +96,14 @@ Acesse:
 
 ---
 
-## 🅰️ 4. Executando o Frontend (Angular)
+# 🛑 4. Atenção
+É necessário que haja um usuário administrador no sistema. Acesse ´´´http://localhost:8000/docs´´´
+
+Na rota /auth/cadastrar preencha os campos de email e senha. Com isso feito, posteriormente você poderá acessar a dash do administrador no sistema.
+
+---
+
+## 🅰️ 5. Executando o Frontend (Angular)
 
 Entre na pasta Frontend:
 
@@ -113,7 +120,11 @@ Execute o servidor:
 Acesse:  
 `http://localhost:4200`
 
+Observação: para acessar o painel de administrador, acesse:
+´´´http://localhost:4200/login´´´
+
 ---
+
 
 ## 👨‍💻 Autor
 
