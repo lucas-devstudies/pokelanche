@@ -1,3 +1,5 @@
+![Imagem do projeto] (imagem.png)
+
 # 🍔 Pokelanche
 
 Projeto fullstack utilizando Python no backend e Angular + Node no frontend + Figma no protótipo de UI.
