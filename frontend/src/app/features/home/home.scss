@@ -15,15 +15,20 @@ html, body {
 .bg-body-tertiary{
     background-color: #fff !important;
 }
-.produtos{
+.produtos {
+    display: flex;
+    flex-direction: row;
     overflow-x: auto;
+    overflow-y: hidden;
     white-space: nowrap;
-    cursor: grab;
+    scrollbar-width: none;
 }
-.produtos:active{
+
+.produtos:active {
     cursor: grabbing;
 }
-.produtos::-webkit-scrollbar{
+
+.produtos::-webkit-scrollbar {
     display: none;
 }
 .cat-img_direita{

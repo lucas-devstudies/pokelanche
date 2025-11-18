@@ -25,7 +25,16 @@ export class Home implements AfterViewInit {
   list:Categoria[] = [];
 
   ngAfterViewInit() {
-    this.configurarScroll();
+      // quando já existir pelo menos 1 container
+      if (this.scrollContainers.length > 0) {
+        this.configurarScroll();
+      }
+
+      // quando novos containers surgirem após a API carregar
+      this.scrollContainers.changes.subscribe(() => {
+        this.configurarScroll();
+      });
+
   }
 
   abrirModal(item: Produto) {
@@ -65,7 +74,7 @@ export class Home implements AfterViewInit {
     });
   }
   //Estrutura pra fazer o Scrool de cards
-  private configurarScroll() {
+    private configurarScroll() {
     this.scrollContainers.forEach((containerRef: ElementRef) => {
     const container = containerRef.nativeElement;
 
