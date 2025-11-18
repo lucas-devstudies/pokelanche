@@ -29,8 +29,10 @@ export class Home implements AfterViewInit {
   }
 
   abrirModal(item: Produto) {
-    this.produtoSelecionado = item;
-    this.mostrarModal = true;
+    if (item.disponivel!=false){
+      this.produtoSelecionado = item;
+      this.mostrarModal = true;
+    }
   }
 
   fecharModal() {
